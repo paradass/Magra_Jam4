@@ -52,16 +52,16 @@ public class GridMouseEvent : MonoBehaviour
             }
             else
             {
-
+                print("Sa");
             }
             
         }
         else if (ToolManager.Instance.seciliBlok == "Blok2")
         {
-            if (ToolManager.Instance.blok1Count > 0)
+            if (ToolManager.Instance.blok2Count > 0)
             {
-                ToolManager.Instance.blok1Count--;
-                obje = Instantiate(rampa, new Vector3(transform.position.x+2.0f, transform.position.y, -1), transform.rotation);
+                ToolManager.Instance.blok2Count--;
+                obje = Instantiate(rampa, new Vector3(transform.position.x+0.2f, transform.position.y, -1), transform.rotation);
             }
             else
             {
@@ -70,10 +70,10 @@ public class GridMouseEvent : MonoBehaviour
         }
         else if (ToolManager.Instance.seciliBlok == "Blok3")
         {
-            if (ToolManager.Instance.blok1Count > 0)
+            if (ToolManager.Instance.blok3Count > 0)
             {
-                ToolManager.Instance.blok1Count--;
-                obje = Instantiate(tuhaf, new Vector3(transform.position.x+2.0f, transform.position.y, -1), transform.rotation);
+                ToolManager.Instance.blok3Count--;
+                obje = Instantiate(tuhaf, new Vector3(transform.position.x+0.2f, transform.position.y, -1), transform.rotation);
             }
             else
             {

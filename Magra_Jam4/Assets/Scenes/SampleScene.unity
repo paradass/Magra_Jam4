@@ -320,9 +320,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   seciliBlok: yok
-  blok1Count: 0
-  blok2Count: 0
-  blok3Count: 0
+  blok1Count: 5
+  blok2Count: 5
+  blok3Count: 5
   blok1: {fileID: 105030598}
   blok2: {fileID: 765395339}
   blok3: {fileID: 1215476243}
