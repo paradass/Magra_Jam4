@@ -1,18 +1,60 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BallController : MonoBehaviour
 {
-    // Start is called before the first frame update
+    private Rigidbody2D rb;
+    public Button basla;
+    public Button hizlandir;
+    private bool isnowfast;
+    public float ballSpeedx;
+    public float ballSpeedy;
+    public int ballspeedtime;
+    private Vector2 vector;
+    private bool itclickedonce;
+
     void Start()
     {
+        rb = GetComponent<Rigidbody2D>();
+        basla.onClick.AddListener(Task1OnClick);
+        hizlandir.onClick.AddListener(Task2OnClick);
+        itclickedonce = false;
+        isnowfast = false;
+    }
+    void FixedUpdate()
+    {
+
+        StartCoroutine(fastballtime());
+    }
+    void Task1OnClick()
+    {
+        rb.bodyType = RigidbodyType2D.Dynamic;
+    }
+    void Task2OnClick()
+    {
+        if (itclickedonce==false)
+        {
+            isnowfast = true;
+            itclickedonce = true;
+            if (isnowfast)
+            {
+                rb.velocity = new Vector2(rb.velocity.x * ballSpeedx, rb.velocity.y * ballSpeedy);
+            }
+        }
+        
+    }
+    IEnumerator fastballtime()
+    {
+        if (isnowfast)
+        {
+            yield return new WaitForSeconds(ballspeedtime);
+            isnowfast = false;
+            itclickedonce = false;
+               
+        }
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
