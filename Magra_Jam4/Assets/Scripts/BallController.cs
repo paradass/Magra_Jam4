@@ -8,25 +8,31 @@ public class BallController : MonoBehaviour
     private Rigidbody2D rb;
     public Button basla;
     public Button hizlandir;
+
     private bool isnowfast;
     public float ballSpeedx;
     public float ballSpeedy;
     public int ballspeedtime;
     private Vector2 vector;
     private bool itclickedonce;
-
+    private bool frozen;
+    private bool itonceFrozen;
+    public int ballFrozentime;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         basla.onClick.AddListener(Task1OnClick);
         hizlandir.onClick.AddListener(Task2OnClick);
+
         itclickedonce = false;
         isnowfast = false;
+
     }
     void FixedUpdate()
     {
 
         StartCoroutine(fastballtime());
+
     }
     void Task1OnClick()
     {
@@ -45,6 +51,8 @@ public class BallController : MonoBehaviour
         }
         
     }
+
+
     IEnumerator fastballtime()
     {
         if (isnowfast)
