@@ -38,7 +38,11 @@ public class BallFreze : MonoBehaviour
     {
         if (isfrozen)
         {
-            yield return new WaitForSeconds(bollfrozentime);
+            for (int i = 0; i < bollfrozentime; i++)
+            {
+                yield return new WaitForSeconds(1f);
+            }
+            
             isforzenonce = false;
             rbody.bodyType = RigidbodyType2D.Dynamic;
         }

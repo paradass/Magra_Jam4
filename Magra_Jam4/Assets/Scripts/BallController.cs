@@ -20,6 +20,8 @@ public class BallController : MonoBehaviour
     public int ballFrozentime;
 
     public bool itstarted;
+    public ToolManager Tm;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -40,6 +42,8 @@ public class BallController : MonoBehaviour
     {
         rb.bodyType = RigidbodyType2D.Dynamic;
         itstarted = true;
+        basla.gameObject.SetActive(false);
+        Tm.oyunBasladi = true;
     }
     void Task2OnClick()
     {
@@ -52,7 +56,7 @@ public class BallController : MonoBehaviour
                 rb.velocity = new Vector2(rb.velocity.x * ballSpeedx, rb.velocity.y * ballSpeedy);
             }
         }
-        
+
     }
 
 
@@ -63,9 +67,6 @@ public class BallController : MonoBehaviour
             yield return new WaitForSeconds(ballspeedtime);
             isnowfast = false;
             itclickedonce = false;
-               
         }
-        
     }
-
 }
