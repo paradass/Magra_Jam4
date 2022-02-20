@@ -10,7 +10,7 @@ public class ToolManager : MonoBehaviour
     public int seciliBlok = 0;
     public int[] blokMiktari;
     [SerializeField] private Button[] butonlar;
-    public bool oyunBasladi;
+    public bool oyunBaslayabilirmi = true,oyunBasladi;
 
     void Start()
     {
