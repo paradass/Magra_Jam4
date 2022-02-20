@@ -42,7 +42,6 @@ public class BallFreze : MonoBehaviour
             {
                 yield return new WaitForSeconds(1f);
             }
-            
             isforzenonce = false;
             rbody.bodyType = RigidbodyType2D.Dynamic;
         }
