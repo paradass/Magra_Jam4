@@ -3449,6 +3449,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ball
       objectReference: {fileID: 0}
+    - target: {fileID: 1603327695632835258, guid: 7a66ef6fab3f67e46b27ff7817fff981, type: 3}
+      propertyPath: donma
+      value: 
+      objectReference: {fileID: 1783316474}
     - target: {fileID: 1603327695632835260, guid: 7a66ef6fab3f67e46b27ff7817fff981, type: 3}
       propertyPath: Tm
       value: 
@@ -3467,11 +3471,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1603327695632835262, guid: 7a66ef6fab3f67e46b27ff7817fff981, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.71
+      value: -6.66
       objectReference: {fileID: 0}
     - target: {fileID: 1603327695632835262, guid: 7a66ef6fab3f67e46b27ff7817fff981, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.15
+      value: 5.08
       objectReference: {fileID: 0}
     - target: {fileID: 1603327695632835262, guid: 7a66ef6fab3f67e46b27ff7817fff981, type: 3}
       propertyPath: m_LocalPosition.z
@@ -6914,6 +6918,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1767784741}
   m_CullTransparentMesh: 1
+--- !u!114 &1783316474 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8221205408269003044, guid: 3574430a04a667f4db3b02fb9d392bb0, type: 3}
+  m_PrefabInstance: {fileID: 82663202}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1834578536
 GameObject:
   m_ObjectHideFlags: 0
