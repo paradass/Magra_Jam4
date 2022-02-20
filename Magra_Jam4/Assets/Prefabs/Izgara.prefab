@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 6ec9ce79f8899c44cb789801d9c374ac, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b77a2c222c40ffd4abf0083f87199759, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0.29803923}
   m_FlipX: 0
   m_FlipY: 0
@@ -96,12 +96,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a84f5e0f2f0b50049b0ea80d58398d4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blok: {fileID: 9056267846377602907, guid: 725a5cd1b4e1e5c49a789b15a218fced, type: 3}
-  rampa: {fileID: 866551023418550623, guid: da6f2dde8a4e25643b1a2c43abd05dba, type: 3}
-  tuhaf: {fileID: 6551257242158983036, guid: c267d2569893080418cdbc8ee70b952a, type: 3}
-  blokSuilet: {fileID: 5044033282593184632, guid: 47febda629212ee4a999bb46ce945ea9, type: 3}
-  rampaSuilet: {fileID: 617364874425698889, guid: 5f7945be8e1141a4e9aa01b6013050e1, type: 3}
-  tuhafSuilet: {fileID: 3177653302269693751, guid: 900135a7dc73d6e4db68d73012848764, type: 3}
+  bloklar:
+  - {fileID: 5044033282593184632, guid: 47febda629212ee4a999bb46ce945ea9, type: 3}
+  - {fileID: 295686789919940259, guid: 725a5cd1b4e1e5c49a789b15a218fced, type: 3}
+  - {fileID: 6491011242130976782, guid: 2a24cc6371b528848a9f5562b82569a2, type: 3}
+  - {fileID: 6458589548374130024, guid: de7e9300b2261e84c99e1b737f03a9ff, type: 3}
+  - {fileID: 1961343227830316562, guid: 34a182ecc63bc4f458187aed2d6f51e2, type: 3}
+  - {fileID: 775278511723520271, guid: 0637e00c2ab8a05428db0d9cd8a21152, type: 3}
+  - {fileID: 7667984974103336116, guid: 015816b06def0754aa28b564e1c42eac, type: 3}
+  - {fileID: 6557787625946331412, guid: 839c125e1946042429a370cc921ea7e3, type: 3}
+  - {fileID: 7514083703904989950, guid: 88e03c6dc55574543ab6284deea3cce1, type: 3}
+  - {fileID: 8870511652506816257, guid: bdc4465b8a66b5442afd26a984c89cb8, type: 3}
+  - {fileID: 8129887883266200226, guid: 2adcd771b7e64364893bffee32477214, type: 3}
+  - {fileID: 3390522014731284277, guid: fadc891cd4b69c348bb5a0161375d84a, type: 3}
+  - {fileID: 3711009320051942511, guid: f220d13a291d4564f952e278848559a6, type: 3}
+  - {fileID: 4954575192247867904, guid: e5c4eb1879a500944a94968e0ca8109d, type: 3}
+  - {fileID: 7319035774810365749, guid: cc14107bebb221341a8f0faaba42d3e8, type: 3}
+  - {fileID: 6447384796859882009, guid: 1cae670db5628344eb8334564d2b90bb, type: 3}
 --- !u!61 &550293182038411730
 BoxCollider2D:
   m_ObjectHideFlags: 0

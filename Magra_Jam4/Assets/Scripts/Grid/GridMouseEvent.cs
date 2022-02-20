@@ -4,9 +4,17 @@ using UnityEngine;
 
 public class GridMouseEvent : MonoBehaviour
 {
-    [SerializeField] private GameObject blok,rampa,tuhaf,blokSuilet,rampaSuilet,tuhafSuilet;
+    [SerializeField] private GameObject[] bloklar;
     GameObject suilet,obje;
 
+    private void Update()
+    {
+        if (ToolManager.Instance.oyunBasladi)
+        {
+            Destroy(suilet);
+            Destroy(gameObject);
+        }
+    }
     private void OnMouseEnter()
     {
         BlokSuilet();
@@ -27,58 +35,33 @@ public class GridMouseEvent : MonoBehaviour
 
     void BlokSuilet()
     {
-        if(ToolManager.Instance.seciliBlok == "Blok1")
+        if(ToolManager.Instance.blokMiktari[ToolManager.Instance.seciliBlok] > 0)
         {
-            suilet = Instantiate(blokSuilet, new Vector3(transform.position.x,transform.position.y,-1), transform.rotation);
+            suilet = Instantiate(bloklar[ToolManager.Instance.seciliBlok], new Vector3(transform.position.x, transform.position.y, -1), transform.rotation);
+            suilet.transform.GetChild(0).GetComponent<SpriteRenderer>().color = new Color(0, 0, 100, 0.3f);
+            suilet.GetComponent<Rigidbody2D>().isKinematic = true;
+            try
+            {
+                Destroy(suilet.GetComponent<PolygonCollider2D>());
+            }
+            catch { }
+
+            try
+            {
+                Destroy(suilet.GetComponent<BoxCollider2D>());
+            }
+            catch { }
         }
-        else if (ToolManager.Instance.seciliBlok == "Blok2")
-        {
-            suilet = Instantiate(rampaSuilet, new Vector3(transform.position.x+0.2f, transform.position.y, -1), transform.rotation);
-        }
-        else if (ToolManager.Instance.seciliBlok == "Blok3")
-        {
-            suilet = Instantiate(tuhafSuilet, new Vector3(transform.position.x+0.2f, transform.position.y, -1), transform.rotation);
-        }
+
     }
 
     void BlokYerlestir()
     {
-        if (ToolManager.Instance.seciliBlok == "Blok1")
+        if(ToolManager.Instance.blokMiktari[ToolManager.Instance.seciliBlok] > 0)
         {
-            if(ToolManager.Instance.blok1Count > 0)
-            {
-                ToolManager.Instance.blok1Count--;
-                obje = Instantiate(blok, new Vector3(transform.position.x, transform.position.y, -1), transform.rotation);
-            }
-            else
-            {
-                print("Sa");
-            }
-            
-        }
-        else if (ToolManager.Instance.seciliBlok == "Blok2")
-        {
-            if (ToolManager.Instance.blok2Count > 0)
-            {
-                ToolManager.Instance.blok2Count--;
-                obje = Instantiate(rampa, new Vector3(transform.position.x+0.2f, transform.position.y, -1), transform.rotation);
-            }
-            else
-            {
-
-            }
-        }
-        else if (ToolManager.Instance.seciliBlok == "Blok3")
-        {
-            if (ToolManager.Instance.blok3Count > 0)
-            {
-                ToolManager.Instance.blok3Count--;
-                obje = Instantiate(tuhaf, new Vector3(transform.position.x+0.2f, transform.position.y, -1), transform.rotation);
-            }
-            else
-            {
-
-            }
+            ToolManager.Instance.blokMiktari[ToolManager.Instance.seciliBlok] -= 1;
+            obje = Instantiate(bloklar[ToolManager.Instance.seciliBlok], new Vector3(transform.position.x, transform.position.y, -1), transform.rotation);
+            obje.GetComponent<Rigidbody2D>().isKinematic = true;
         }
     }
 }

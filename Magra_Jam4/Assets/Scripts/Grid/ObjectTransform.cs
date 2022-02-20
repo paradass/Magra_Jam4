@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ObjectTransform : MonoBehaviour
 {
-    
+    [SerializeField] private int blokNo;
     void Start()
     {
         
@@ -13,13 +13,22 @@ public class ObjectTransform : MonoBehaviour
     
     void Update()
     {
-        
+        if (ToolManager.Instance.oyunBasladi)
+        {
+            GetComponent<Rigidbody2D>().isKinematic = false;
+            Destroy(this);
+        }
     }
 
     private void OnMouseOver()
     {
-        if (Input.GetMouseButton(1))
+        if (Input.GetMouseButtonDown(0))
         {
+            transform.Rotate(0, 0, 90);
+        }
+        else if (Input.GetMouseButton(1))
+        {
+            ToolManager.Instance.blokMiktari[blokNo] += 1;
             Destroy(gameObject);
         }
     }
