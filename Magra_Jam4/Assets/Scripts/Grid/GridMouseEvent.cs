@@ -39,7 +39,8 @@ public class GridMouseEvent : MonoBehaviour
         {
             suilet = Instantiate(bloklar[ToolManager.Instance.seciliBlok], new Vector3(transform.position.x, transform.position.y, -1), transform.rotation);
             suilet.transform.GetChild(0).GetComponent<SpriteRenderer>().color = new Color(0, 0, 100, 0.3f);
-            suilet.GetComponent<Rigidbody2D>().isKinematic = true;
+            suilet.GetComponent<Rigidbody2D>().gravityScale = 0;
+            //suilet.GetComponent<Rigidbody2D>().isKinematic = true;
             try
             {
                 Destroy(suilet.GetComponent<PolygonCollider2D>());
@@ -61,7 +62,8 @@ public class GridMouseEvent : MonoBehaviour
         {
             ToolManager.Instance.blokMiktari[ToolManager.Instance.seciliBlok] -= 1;
             obje = Instantiate(bloklar[ToolManager.Instance.seciliBlok], new Vector3(transform.position.x, transform.position.y, -1), transform.rotation);
-            obje.GetComponent<Rigidbody2D>().isKinematic = true;
+            obje.GetComponent<Rigidbody2D>().gravityScale = 0;
+            //obje.GetComponent<Rigidbody2D>().isKinematic = true;
         }
     }
 }

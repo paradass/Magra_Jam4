@@ -16,6 +16,7 @@ public class ObjectTransform : MonoBehaviour
         if (ToolManager.Instance.oyunBasladi)
         {
             GetComponent<Rigidbody2D>().isKinematic = false;
+            GetComponent<Rigidbody2D>().gravityScale = 1;
             Destroy(this);
         }
     }
@@ -31,5 +32,15 @@ public class ObjectTransform : MonoBehaviour
             ToolManager.Instance.blokMiktari[blokNo] += 1;
             Destroy(gameObject);
         }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.GetComponent<ObjectTransform>())
+        {
+            ToolManager.Instance.blokMiktari[blokNo] += 1;
+            Destroy(gameObject);
+        }
+
     }
 }
