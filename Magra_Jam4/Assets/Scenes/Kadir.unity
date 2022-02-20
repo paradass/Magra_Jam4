@@ -894,6 +894,7 @@ GameObject:
   - component: {fileID: 1354768865}
   - component: {fileID: 1354768866}
   - component: {fileID: 1354768867}
+  - component: {fileID: 1354768868}
   m_Layer: 0
   m_Name: Ball
   m_TagString: Ball
@@ -1004,6 +1005,7 @@ MonoBehaviour:
   ballSpeedx: 2
   ballSpeedy: 3
   ballspeedtime: 5
+  ballFrozentime: 5
 --- !u!58 &1354768867
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1020,6 +1022,20 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &1354768868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1354768862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68790f60da7705e4aaa23b86a97900e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  donma: {fileID: 1595052362}
+  bollfrozentime: 5
 --- !u!1 &1373916226
 GameObject:
   m_ObjectHideFlags: 0
