@@ -18,6 +18,8 @@ public class BallController : MonoBehaviour
     private bool frozen;
     private bool itonceFrozen;
     public int ballFrozentime;
+
+    public bool itstarted;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -26,7 +28,7 @@ public class BallController : MonoBehaviour
 
         itclickedonce = false;
         isnowfast = false;
-
+        itstarted = false;
     }
     void FixedUpdate()
     {
@@ -37,6 +39,7 @@ public class BallController : MonoBehaviour
     void Task1OnClick()
     {
         rb.bodyType = RigidbodyType2D.Dynamic;
+        itstarted = true;
     }
     void Task2OnClick()
     {

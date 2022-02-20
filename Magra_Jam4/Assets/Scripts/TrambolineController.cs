@@ -24,5 +24,21 @@ public class TrambolineController : MonoBehaviour
         {
             collision.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(collision.gameObject.GetComponent<Rigidbody2D>().velocity.x - trambolinebounce, collision.gameObject.GetComponent<Rigidbody2D>().velocity.y );
         }
+        else if(collision.gameObject.tag=="Ball"&& positions == 5)
+        {
+            collision.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(collision.gameObject.GetComponent<Rigidbody2D>().velocity.x + trambolinebounce, collision.gameObject.GetComponent<Rigidbody2D>().velocity.y + trambolinebounce);
+        }
+        else if(collision.gameObject.tag=="Ball"&& positions == 6)
+        {
+            collision.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(collision.gameObject.GetComponent<Rigidbody2D>().velocity.x - trambolinebounce, collision.gameObject.GetComponent<Rigidbody2D>().velocity.y + trambolinebounce);
+        }
+        else if(collision.gameObject.tag=="Ball"&& positions == 7)
+        {
+            collision.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(collision.gameObject.GetComponent<Rigidbody2D>().velocity.x + trambolinebounce, collision.gameObject.GetComponent<Rigidbody2D>().velocity.y - trambolinebounce);
+        }
+        else if(collision.gameObject.tag=="Ball"&& positions == 8)
+        {
+            collision.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(collision.gameObject.GetComponent<Rigidbody2D>().velocity.x - trambolinebounce, collision.gameObject.GetComponent<Rigidbody2D>().velocity.y - trambolinebounce);
+        }
     }
 }
