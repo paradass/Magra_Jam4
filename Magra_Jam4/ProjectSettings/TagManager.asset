@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Tramboline
   - Ball
+  - Metal
+  - Tahta
   layers:
   - Default
   - TransparentFX

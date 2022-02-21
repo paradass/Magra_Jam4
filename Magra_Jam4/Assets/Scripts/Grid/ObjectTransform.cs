@@ -17,6 +17,11 @@ public class ObjectTransform : MonoBehaviour
         {
             GetComponent<Rigidbody2D>().isKinematic = false;
             GetComponent<Rigidbody2D>().gravityScale = 1;
+            if(gameObject.tag == "Tahta")
+            {
+                transform.GetChild(0).GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+                GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
+            }
             Destroy(this);
         }
     }
@@ -38,9 +43,32 @@ public class ObjectTransform : MonoBehaviour
     {
         if (collision.gameObject.GetComponent<ObjectTransform>())
         {
+            transform.GetChild(0).GetComponent<SpriteRenderer>().color = new Color(100, 0, 0,0.5f);
+            ToolManager.Instance.oyunBaslayabilirmi = false;
+        }
+        else
+        {
             ToolManager.Instance.blokMiktari[blokNo] += 1;
             Destroy(gameObject);
         }
 
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.GetComponent<ObjectTransform>())
+        {
+            transform.GetChild(0).GetComponent<SpriteRenderer>().color = new Color(100, 0, 0,0.5f);
+            ToolManager.Instance.oyunBaslayabilirmi = false;
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.GetComponent<ObjectTransform>())
+        {
+            transform.GetChild(0).GetComponent<SpriteRenderer>().color = new Color(1, 1, 1,1);
+            ToolManager.Instance.oyunBaslayabilirmi = true;
+        }
     }
 }
