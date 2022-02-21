@@ -30,7 +30,7 @@ public class ObjectTransform : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            transform.Rotate(0, 0, 90);
+            transform.Rotate(0, 0, -90);
         }
         else if (Input.GetMouseButton(1))
         {

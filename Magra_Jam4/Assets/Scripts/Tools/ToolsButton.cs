@@ -16,6 +16,10 @@ public class ToolsButton : MonoBehaviour
     private void Update()
     {
         miktar.text = ToolManager.Instance.blokMiktari[toolNo].ToString();
+        if (ToolManager.Instance.oyunBasladi)
+        {
+            Destroy(gameObject);
+        }
     }
     public void ButonSec()
     {
