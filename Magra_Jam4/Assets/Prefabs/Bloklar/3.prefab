@@ -136,7 +136,7 @@ PolygonCollider2D:
       - {x: -0.1878183, y: -0.37130958}
       - {x: -0.20579074, y: -0.40932977}
       - {x: -0.21717952, y: -0.45097253}
-      - {x: 0.23168157, y: -0.45096633}
+      - {x: 0.22831367, y: -0.45096633}
       - {x: 0.22340272, y: 0.4499135}
 --- !u!114 &6458589548374130039
 MonoBehaviour:
@@ -176,7 +176,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8261947505987047189}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.008, y: 0.069, z: 0}
+  m_LocalPosition: {x: 0.003, y: 0.074, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6458589548374130036}

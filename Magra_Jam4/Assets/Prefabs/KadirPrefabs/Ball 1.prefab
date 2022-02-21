@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: 4adeaf2d2b1c7417e89f026626d8264f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2d61105ea3f699e4aa18d95695d848e8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -122,6 +122,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   basla: {fileID: 0}
   hizlandir: {fileID: 0}
+  yercekimi: {fileID: 0}
+  hata: {fileID: 0}
   ballSpeedx: 2
   ballSpeedy: 3
   ballspeedtime: 5
@@ -139,6 +141,7 @@ MonoBehaviour:
   - {r: 0.5849056, g: 0.37798145, b: 0.37798145, a: 0}
   - {r: 0.5990159, g: 0.6037736, b: 0.37878248, a: 0}
   - {r: 0.5660378, g: 0.2803489, b: 0.5562075, a: 0}
+  bf: {fileID: 0}
 --- !u!58 &1433887622317691646
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -173,6 +176,7 @@ MonoBehaviour:
   howmuchfrezewehave: 3
   buttontext: {fileID: 0}
   bc: {fileID: 1433887622317691647}
+  frezesprite: {fileID: 0}
 --- !u!114 &1433887622317691640
 MonoBehaviour:
   m_ObjectHideFlags: 0
