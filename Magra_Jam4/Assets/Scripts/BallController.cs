@@ -8,6 +8,7 @@ public class BallController : MonoBehaviour
     private Rigidbody2D rb;
     public Button basla;
     public Button hizlandir;
+    public Button yercekimi;
     public Text hata;
 
 
@@ -37,11 +38,13 @@ public class BallController : MonoBehaviour
 
     private Color acolor;
     public BallFreze bf;
+    private bool yercekimiTersmi;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         basla.onClick.AddListener(Task1OnClick);
         hizlandir.onClick.AddListener(Task2OnClick);
+        yercekimi.onClick.AddListener(YercekiminiTersineCevir);
 
         itstarted = false;
         buttontext.GetComponent<Text>().text = "H�zland�r " + (howmuchballcanbefast);
@@ -71,14 +74,15 @@ public class BallController : MonoBehaviour
     {
         if (ToolManager.Instance.oyunBaslayabilirmi)
         {
+            ToolManager.Instance.oyunBasladi = true;
             rb.bodyType = RigidbodyType2D.Dynamic;
             itstarted = true;
             basla.gameObject.SetActive(false);
 
-            ballFreze.gameObject.SetActive(true);
             hizlandir.gameObject.SetActive(true);
             Tm.oyunBasladi = true;
             hata.gameObject.SetActive(false);
+            ballFreze.gameObject.SetActive(true);
         }
         else
         {
@@ -98,6 +102,28 @@ public class BallController : MonoBehaviour
         else
         {
             hizlandir.gameObject.SetActive(false);
+        }
+    }
+
+    void YercekiminiTersineCevir()
+    {
+        if (yercekimiTersmi)
+        {
+            rb.gravityScale *= -1;
+            GameObject[] tahtalar = GameObject.FindGameObjectsWithTag("Tahta");
+            foreach (GameObject tahta in tahtalar)
+            {
+                tahta.GetComponent<Rigidbody2D>().gravityScale *= -1;
+            }
+        }
+        else
+        {
+            rb.gravityScale *= -1;
+            GameObject[] tahtalar = GameObject.FindGameObjectsWithTag("Tahta");
+            foreach(GameObject tahta in tahtalar)
+            {
+                tahta.GetComponent<Rigidbody2D>().gravityScale *= -1;
+            }
         }
     }
     IEnumerator dashtime()
