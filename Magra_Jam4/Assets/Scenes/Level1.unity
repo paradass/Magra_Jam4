@@ -597,7 +597,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 31ad1602acdebc64491434b7edf71585, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.0627451}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1168,7 +1168,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &907956458 stripped
 MonoBehaviour:
@@ -1194,7 +1194,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7586176818829382299, guid: 0b99fcc6db2b9a342a5c904e97463dc6, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7586176818829382299, guid: 0b99fcc6db2b9a342a5c904e97463dc6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2052,7 +2052,7 @@ Transform:
   m_Children:
   - {fileID: 1974967049}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1406910024
 GameObject:
@@ -2332,7 +2332,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2269640296793080953, guid: c162d9025c6bde94e915d7ea19339d3a, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2269640296793080953, guid: c162d9025c6bde94e915d7ea19339d3a, type: 3}
       propertyPath: m_LocalPosition.x
