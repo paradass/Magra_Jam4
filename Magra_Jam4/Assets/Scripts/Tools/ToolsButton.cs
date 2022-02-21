@@ -19,6 +19,14 @@ public class ToolsButton : MonoBehaviour
     }
     public void ButonSec()
     {
-        ToolManager.Instance.ButonSec(toolNo);
+        if(ToolManager.Instance.seciliBlok == toolNo)
+        {
+            ToolManager.Instance.ButonSec(toolNo);
+            ToolManager.Instance.seciliBlok = -1;
+        }
+        else
+        {
+            ToolManager.Instance.ButonSec(toolNo);
+        }
     }
 }

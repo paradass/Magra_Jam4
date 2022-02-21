@@ -12,12 +12,6 @@ public class GridCreator : MonoBehaviour
         Olustur();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     void Olustur()
     {
         for(int i = 0; i < yTekrar; i++)

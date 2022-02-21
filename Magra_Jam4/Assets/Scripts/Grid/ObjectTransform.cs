@@ -41,34 +41,20 @@ public class ObjectTransform : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.GetComponent<ObjectTransform>())
-        {
-            transform.GetChild(0).GetComponent<SpriteRenderer>().color = new Color(100, 0, 0,0.5f);
-            ToolManager.Instance.oyunBaslayabilirmi = false;
-        }
-        else
-        {
-            ToolManager.Instance.blokMiktari[blokNo] += 1;
-            Destroy(gameObject);
-        }
+        transform.GetChild(0).GetComponent<SpriteRenderer>().color = new Color(100, 0, 0, 0.5f);
+        ToolManager.Instance.oyunBaslayabilirmi = false;
 
     }
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        if (collision.gameObject.GetComponent<ObjectTransform>())
-        {
-            transform.GetChild(0).GetComponent<SpriteRenderer>().color = new Color(100, 0, 0,0.5f);
-            ToolManager.Instance.oyunBaslayabilirmi = false;
-        }
+        transform.GetChild(0).GetComponent<SpriteRenderer>().color = new Color(100, 0, 0, 0.5f);
+        ToolManager.Instance.oyunBaslayabilirmi = false;
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.gameObject.GetComponent<ObjectTransform>())
-        {
-            transform.GetChild(0).GetComponent<SpriteRenderer>().color = new Color(1, 1, 1,1);
-            ToolManager.Instance.oyunBaslayabilirmi = true;
-        }
+        transform.GetChild(0).GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+        ToolManager.Instance.oyunBaslayabilirmi = true;
     }
 }

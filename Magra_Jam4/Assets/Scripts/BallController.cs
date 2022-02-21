@@ -8,6 +8,7 @@ public class BallController : MonoBehaviour
     private Rigidbody2D rb;
     public Button basla;
     public Button hizlandir;
+    public Text hata;
 
 
     public float ballSpeedx;
@@ -43,7 +44,7 @@ public class BallController : MonoBehaviour
         hizlandir.onClick.AddListener(Task2OnClick);
 
         itstarted = false;
-        buttontext.GetComponent<Text>().text = "Hýzlandýr " + (howmuchballcanbefast);
+        buttontext.GetComponent<Text>().text = "Hï¿½zlandï¿½r " + (howmuchballcanbefast);
         acolor = sampleball.GetComponent<SpriteRenderer>().color;
     }
     void Update()
@@ -68,13 +69,22 @@ public class BallController : MonoBehaviour
 
     void Task1OnClick()
     {
-        rb.bodyType = RigidbodyType2D.Dynamic;
-        itstarted = true;
-        basla.gameObject.SetActive(false);
-        
-        ballFreze.gameObject.SetActive(true);
-        hizlandir.gameObject.SetActive(true);
-        Tm.oyunBasladi = true;
+        if (ToolManager.Instance.oyunBaslayabilirmi)
+        {
+            rb.bodyType = RigidbodyType2D.Dynamic;
+            itstarted = true;
+            basla.gameObject.SetActive(false);
+
+            ballFreze.gameObject.SetActive(true);
+            hizlandir.gameObject.SetActive(true);
+            Tm.oyunBasladi = true;
+            hata.gameObject.SetActive(false);
+        }
+        else
+        {
+            hata.gameObject.SetActive(true);
+            Invoke("HataSonlandir", 3);
+        }
     }
     void Task2OnClick()
     {
@@ -83,7 +93,7 @@ public class BallController : MonoBehaviour
         {
             rb.velocity = new Vector2(rb.velocity.x * ballSpeedx, rb.velocity.y * ballSpeedy);
             howmuchballcanbefastbox++;
-            buttontext.GetComponent<Text>().text ="Hýzlandýr "+(howmuchballcanbefast - howmuchballcanbefastbox).ToString(); 
+            buttontext.GetComponent<Text>().text ="Hï¿½zlandï¿½r "+(howmuchballcanbefast - howmuchballcanbefastbox).ToString(); 
         }
         else
         {
@@ -95,5 +105,10 @@ public class BallController : MonoBehaviour
         candash = true;
         yield return new WaitForSeconds(dashtimes);
         candash = false;
+    }
+
+    void HataSonlandir()
+    {
+        hata.gameObject.SetActive(false);
     }
 }

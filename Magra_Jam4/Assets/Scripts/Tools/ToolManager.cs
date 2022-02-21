@@ -7,7 +7,7 @@ public class ToolManager : MonoBehaviour
 {
     private static ToolManager _instance;
     public static ToolManager Instance => _instance;
-    public int seciliBlok = 0;
+    public int seciliBlok = -1;
     public int[] blokMiktari;
     [SerializeField] private Button[] butonlar;
     public bool oyunBaslayabilirmi = true,oyunBasladi;
