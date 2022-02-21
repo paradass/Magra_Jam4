@@ -9,64 +9,91 @@ public class BallController : MonoBehaviour
     public Button basla;
     public Button hizlandir;
 
-    private bool isnowfast;
+
     public float ballSpeedx;
     public float ballSpeedy;
     public int ballspeedtime;
     private Vector2 vector;
-    private bool itclickedonce;
-    private bool frozen;
-    private bool itonceFrozen;
+
     public int ballFrozentime;
 
     public bool itstarted;
     public ToolManager Tm;
+    public Button ballFreze;
 
+    public int howmuchballcanbefast;
+    private int howmuchballcanbefastbox;
+    public GameObject buttontext;
+    public float dashtimes;
+    private bool candash;
+
+    public float dashnumber;
+    private float dashnumberbox;
+
+    public GameObject sampleball;
+    public Color[] color;
+    private GameObject sampleballxd;
+
+    private Color acolor;
+    public BallFreze bf;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         basla.onClick.AddListener(Task1OnClick);
         hizlandir.onClick.AddListener(Task2OnClick);
 
-        itclickedonce = false;
-        isnowfast = false;
         itstarted = false;
+        buttontext.GetComponent<Text>().text = "Hýzlandýr " + (howmuchballcanbefast);
+        acolor = sampleball.GetComponent<SpriteRenderer>().color;
     }
-    void FixedUpdate()
+    void Update()
     {
-
-        StartCoroutine(fastballtime());
-
+        if (candash)
+        {
+            if (dashnumberbox < dashnumber&&bf.isfrozen==false)
+            {
+                dashnumberbox=dashnumberbox+0.1f;
+                acolor = color[Random.Range(0, color.Length)];
+                acolor.a = 0.2f;
+                sampleball.GetComponent<SpriteRenderer>().color = acolor;
+                GameObject ins = Instantiate(sampleball, new Vector3(transform.position.x, transform.position.y,0), transform.rotation);
+                Destroy(ins, 2f);
+            }
+        }
+        else 
+        {
+            dashnumberbox = 0;
+        }
     }
+
     void Task1OnClick()
     {
         rb.bodyType = RigidbodyType2D.Dynamic;
         itstarted = true;
         basla.gameObject.SetActive(false);
+        
+        ballFreze.gameObject.SetActive(true);
+        hizlandir.gameObject.SetActive(true);
         Tm.oyunBasladi = true;
     }
     void Task2OnClick()
     {
-        if (itclickedonce==false)
+        StartCoroutine(dashtime());
+        if (howmuchballcanbefast-1 > howmuchballcanbefastbox)
         {
-            isnowfast = true;
-            itclickedonce = true;
-            if (isnowfast)
-            {
-                rb.velocity = new Vector2(rb.velocity.x * ballSpeedx, rb.velocity.y * ballSpeedy);
-            }
+            rb.velocity = new Vector2(rb.velocity.x * ballSpeedx, rb.velocity.y * ballSpeedy);
+            howmuchballcanbefastbox++;
+            buttontext.GetComponent<Text>().text ="Hýzlandýr "+(howmuchballcanbefast - howmuchballcanbefastbox).ToString(); 
         }
-
+        else
+        {
+            hizlandir.gameObject.SetActive(false);
+        }
     }
-
-
-    IEnumerator fastballtime()
+    IEnumerator dashtime()
     {
-        if (isnowfast)
-        {
-            yield return new WaitForSeconds(ballspeedtime);
-            isnowfast = false;
-            itclickedonce = false;
-        }
+        candash = true;
+        yield return new WaitForSeconds(dashtimes);
+        candash = false;
     }
 }

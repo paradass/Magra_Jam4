@@ -10,6 +10,7 @@ public class GameController : MonoBehaviour
     public BallController bc;
     public float howmuchgameended;
     private bool nowincoroutime;
+    public BallFreze bf;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -48,7 +49,7 @@ public class GameController : MonoBehaviour
             }
             nowincoroutime = false;
         }
-        if (isStopped && howmuchgameended == 1)
+        if (isStopped && howmuchgameended == 1&& bf.isfrozen==false)
         {
             Debug.Log("oyun ptti");
             howmuchgameended = 2;

@@ -7,9 +7,17 @@ public class BallFreze : MonoBehaviour
 {
  private Rigidbody2D rbody;
     public Button donma;
-    private bool isfrozen;
+    public bool isfrozen;
     private bool isforzenonce;
     public int bollfrozentime;
+    public int howmuchfrezewehave;
+    private int howmuchtimewehavecounter;
+    public GameObject buttontext;
+    public BallController bc;
+    private int counterinCoroutime;
+    private int bollfrozentimebox;
+    public Sprite frezesprite;
+    private Sprite actualsprite;
     //turing
     void Start()
     {
@@ -17,32 +25,41 @@ public class BallFreze : MonoBehaviour
         isfrozen = false;
         isforzenonce = false;
         donma.onClick.AddListener(Task1Listemer);
+        actualsprite = GetComponent<SpriteRenderer>().sprite;
     }
 
 
     void Update()
     {
-        StartCoroutine(donmaop());
+        buttontext.GetComponent<Text>().text ="Dondur "+(howmuchfrezewehave - howmuchtimewehavecounter).ToString();
+        StartCoroutine(donmaop());   
     }
+
     void Task1Listemer()
     {
-        if (isforzenonce == false)
+        rbody.velocity = new Vector2(0, 0);
+        rbody.bodyType = RigidbodyType2D.Static;
+        isfrozen = true;
+        isforzenonce = false;
+        howmuchtimewehavecounter++;
+        if (howmuchtimewehavecounter >= howmuchfrezewehave)
         {
-            rbody.velocity = new Vector2(0, 0);
-            rbody.bodyType = RigidbodyType2D.Static;
-            isfrozen = true;
-            isforzenonce = true;
+            donma.gameObject.SetActive(false);
         }
     }
     IEnumerator donmaop()
     {
-        if (isfrozen)
+        if (isfrozen && isforzenonce == false && howmuchfrezewehave >= howmuchtimewehavecounter && bc.itstarted)
         {
-            for (int i = 0; i < bollfrozentime; i++)
+
+             isforzenonce = true;
+            GetComponent<SpriteRenderer>().sprite = frezesprite;
+             bollfrozentimebox = bollfrozentimebox + bollfrozentime;
+            for (int i = 0; i < bollfrozentimebox; i++)
             {
                 yield return new WaitForSeconds(1f);
             }
-            isforzenonce = false;
+            GetComponent<SpriteRenderer>().sprite = actualsprite;
             rbody.bodyType = RigidbodyType2D.Dynamic;
         }
     }
